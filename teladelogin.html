@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- Define que o documento é do tipo HTML5 -->
+<html lang="pt-br">
+
+<head>
+    <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Garante uma renderização adequada e zoom touch em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título da página -->
+    <title>Login com Firebase</title>
+    <!-- Importa o Bootstrap para estilização -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos CSS internos -->
+    <style>
+        body {
+            background-color: #f4f4f4;
+            /* Cor de fundo do corpo da página */
+            padding-top: 20px;
+            /* Espaçamento no topo do corpo da página */
+        }
+
+        .container {
+            background: white;
+            /* Cor de fundo do container */
+            padding: 20px;
+            /* Espaçamento interno do container */
+            border-radius: 8px;
+            /* Arredondamento das bordas do container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Sombra ao redor do container */
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Jack Media Digital</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sobre Nós
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Quem Somos</a></li>
+                        <li><a href="#">Conheça Nossos Serviços</a></li>
+                        <li><a href="#">Converse Conosco</a></li>
+                    
+                    </ul>
+                </li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">O que Oferecemos</a></li>
+                <li><a href="#">Portifolio</a></li>
+                <li><a href="teladelogin.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Container principal para o formulário de login -->
+    <div class="container">
+        <h2>Login</h2> <!-- Título do formulário -->
+        <!-- Formulário de login com ID 'formLogin' -->
+        <form id="formLogin">
+            <!-- Grupo de formulário para e-mail -->
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <!-- Grupo de formulário para senha -->
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" class="form-control" id="senha" required>
+            </div>
+            <!-- Botão para submeter o formulário -->
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+    </div>
+
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAmngUrhYqH2JUjUmmKdyLfAggh6NQXA7M",
+            authDomain: "agencia-c31be.firebaseapp.com",
+            projectId: "agencia-c31be",
+            storageBucket: "agencia-c31be.appspot.com",
+            messagingSenderId: "888686666146",
+            appId: "1:888686666146:web:a054cc4bae8cd4b11452fb"
+        };
+
+        const app = initializeApp(firebaseConfig);
+
+        const auth = getAuth(app);
+        document.getElementById('formLogin').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            signInWithEmailAndPassword(auth, email, senha)
+                .then((userCredential) => {
+                    console.log('login bem-sucedido:', userCredential);
+                    window.location.href = 'Pedra_Papel_Tesoura/PedraPapelTesoura.html';
+                    const user = userCredential.user;
+
+                });
+
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+section {
+    padding: 20px;
+}
+
+section h2 {
+    color: #333;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+body {
+    background-color: #f4f4f4;
+    /* Cor de fundo do corpo da página */
+    padding-top: 20px;
+    /* Espaçamento no topo do corpo da página */
+}
+
+.container {
+    background: white;
+    /* Cor de fundo do container */
+    padding: 20px;
+    /* Espaçamento interno do container */
+    border-radius: 8px;
+    /* Arredondamento das bordas do container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra ao redor do container */
+}
